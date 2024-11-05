@@ -22,9 +22,7 @@
   - Schema sharing with own team
 
 ## [Data][9]
-<img src="./Media/Hydra500.gif" align="right" />
 
-**Hydra** - **free** software to automatically load and store market data:
   - Supports many sources
   - High compression ratio
   - Any data type
@@ -32,7 +30,7 @@
   - Export to csv, excel, xml or database
   - Import from csv
   - Scheduled tasks
-  - Auto-sync over the Internet between several running programs S#.Data
+  -
 
 ## [Terminal][10]
 <img src="./Media/Terminal500.gif" align="left" />
@@ -63,31 +61,16 @@
 ## [API][12]
 API is a **free** C# library for programmers who use Visual Studio. S#.API lets you create any trading strategy, from long-timeframe positional strategies to high frequency strategies (HFT) with direct access to the exchange (DMA). [More info...][12]
 ### Strategy example
-```C#
+```
 public class SimpleStrategy : Strategy
 {
-	[Display(Name = "CandleSeries",
-		 GroupName = "Base settings")]
-	public CandleSeries CandleSeries { get; set; }
-	public SimpleStrategy(){}
 
-	protected override void OnStarted()
-	{
-		var connector = (Connector)Connector;
-		connector.WhenCandlesFinished(CandleSeries).Do(CandlesFinished).Apply(this);
-		connector.SubscribeCandles(CandleSeries);
-		base.OnStarted();
-	}
-
-	private void CandlesFinished(Candle candle)
 	{
 		if (candle.OpenPrice < candle.ClosePrice && Position <= 0)
 		{
 			RegisterOrder(this.BuyAtMarket(Volume + Math.Abs(Position)));
 		}
-		else if (candle.OpenPrice > candle.ClosePrice && Position >= 0)
-		{
-			RegisterOrder(this.SellAtMarket(Volume + Math.Abs(Position)));
+		else if (candle.Math.Abs(Position)));
 		}
 	}
 }
@@ -185,40 +168,7 @@ public class SimpleStrategy : Strategy
 |<img src="./Media/logos/mfd_logo.svg" height="30" /> |Mfd | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/mfd.html" target="_blank">Ru</a> |
 |<img src="./Media/logos/moex_logo.svg" height="30" /> |Micex (TEAP) | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/micex.html" target="_blank">Ru</a> |
 |<img src="./Media/logos/moex_logo.svg" height="30" /> |Plaza II | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/plaza.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/quik_logo.svg" height="30" /> |Quik FIX |  <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/quikfix.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/itinvest_logo.svg" height="30" /> |SmartCOM |  <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/smartcom.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/spbex_logo.svg" height="30" /> |SPB Exchange |  <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/spb_exchange.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/Transaq_logo.png" height="30" /> |Transaq |  <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/transaq.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/moex_logo.svg" height="30" /> |Twime |  <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/twime.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/UkrExh_logo.png" height="30" /> |UX (сайт) | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/ux.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/Alor_logo.svg" height="30" /> |Алор История | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/alorhistory.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/Alor_logo.svg" height="30" /> |Алор Брокер | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/alor.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/alfadirect_logo.svg" height="30" /> |Альфа-Директ | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/alfadirect.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/MoexLchi_logo.png" height="30" /> |ЛЧИ | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/lci.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/finam_logo.svg" height="30" /> |Финам | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/finam.html" target="_blank">Ru</a> |
-
-## Forex
-|Logo | Name | Documentation Eng| Documentation Ru| 
-|:---:|:----:|:----------------:|:---------------:|
-|<img src="./Media/logos/devexperts_logo.svg" height="30" /> |DXtrade | <a href="//doc.stocksharp.com/topics/api/connectors/forex/dxtrade.html" target="_blank">Eng</a> | <a href="https://doc.stocksharp.ru/topics/api/connectors/forex/dxtrade.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/ctrader_logo.svg" height="30" /> |cTrader | <a href="//doc.stocksharp.com/topics/api/connectors/forex/ctrader.html" target="_blank">Eng</a> | <a href="https://doc.stocksharp.ru/topics/api/connectors/forex/ctrader.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/mt4_logo.svg" height="30" /> |MT4 | <a href="//doc.stocksharp.com/topics/api/connectors/forex/metatrader.html" target="_blank">Eng</a> | <a href="https://doc.stocksharp.ru/topics/api/connectors/forex/metatrader.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/mt5_logo.svg" height="30" /> |MT5 | <a href="//doc.stocksharp.com/topics/api/connectors/forex/metatrader.html" target="_blank">Eng</a> | <a href="https://doc.stocksharp.ru/topics/api/connectors/forex/metatrader.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/dukascopy_logo.svg" height="30" /> |DukasCopy | <a href="//doc.stocksharp.com/topics/api/connectors/forex/dukascopy.html" target="_blank">Eng</a> | <a href="https://doc.stocksharp.ru/topics/api/connectors/forex/dukascopy.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/fxcm_logo.svg" height="30" /> |FXCM | <a href="//doc.stocksharp.com/topics/api/connectors/forex/fxcm.html" target="_blank">Eng</a> | <a href="https://doc.stocksharp.ru/topics/api/connectors/forex/fxcm.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/lmax_logo.svg" height="30" /> |LMAX | <a href="//doc.stocksharp.com/topics/api/connectors/forex/lmax.html" target="_blank">Eng</a> | <a href="https://doc.stocksharp.ru/topics/api/connectors/forex/lmax.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/Oanda_logo.svg" height="30" /> |Oanda | <a href="//doc.stocksharp.com/topics/api/connectors/forex/oanda.html" target="_blank">Eng</a> | <a href="https://doc.stocksharp.ru/topics/api/connectors/forex/oanda.html" target="_blank">Ru</a> |
-
-  [1]: https://stocksharp.com
-  [2]: https://doc.stocksharp.com
-  [3]: https://stocksharp.com/products/download/
-  [4]: https://stocksharp.com/edu/
-  [5]: https://stocksharp.com/forum/
-  [6]: https://stocksharp.com/broker/
-  [7]: https://t.me/stocksharpchat/361
-  [8]: https://stocksharp.com/store/strategy-designer/
-  [9]: https://stocksharp.com/store/market-data-downloader/
-  [10]: https://stocksharp.com/store/trading-terminal/
-  [11]: https://stocksharp.com/store/trading-shell/
-  [12]: https://stocksharp.com/store/api/
-
+|<img src="./Media/logos/quik_logo.svg" height="30" /> |Quik FIX |  <a href="https://doc.stocksharp." target="_blank">Ru</a> |
+|<img src="./Media/logos/itinvest_logo.svg" height="30" /> |SmartCOM |  <a href="https://doc.stocksharp. target="_blank">Ru</a> |
+|<img src="./Media/logos/spbex_logo.svg" height="30" /> |SPB Exchange |  <a href="https://doc.stocksharp.ru/" target="
+|<img src="./Media/logos/Transaq_logo.png" height="30" /> |Transaq |  <a href="https://doc.stocksharp.

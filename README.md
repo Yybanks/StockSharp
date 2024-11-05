@@ -64,20 +64,7 @@ API is a **free** C# library for programmers who use Visual Studio. S#.API lets 
 ```
 public class SimpleStrategy : Strategy
 {
-	[Display(Name = "CandleSeries",
-		 GroupName = "Base settings")]
-	public CandleSeries CandleSeries { get; set; }
-	public SimpleStrategy(){}
 
-	protected override void OnStarted()
-	{
-		var connector = (Connector)Connector;
-		connector.WhenCandlesFinished(CandleSeries).Do(CandlesFinished).Apply(this);
-		connector.SubscribeCandles(CandleSeries);
-		base.OnStarted();
-	}
-
-	private void CandlesFinished(Candle candle)
 	{
 		if (candle.OpenPrice < candle.ClosePrice && Position <= 0)
 		{
@@ -181,17 +168,7 @@ public class SimpleStrategy : Strategy
 |<img src="./Media/logos/mfd_logo.svg" height="30" /> |Mfd | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/mfd.html" target="_blank">Ru</a> |
 |<img src="./Media/logos/moex_logo.svg" height="30" /> |Micex (TEAP) | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/micex.html" target="_blank">Ru</a> |
 |<img src="./Media/logos/moex_logo.svg" height="30" /> |Plaza II | <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/plaza.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/quik_logo.svg" height="30" /> |Quik FIX |  <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/quikfix.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/itinvest_logo.svg" height="30" /> |SmartCOM |  <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/smartcom.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/spbex_logo.svg" height="30" /> |SPB Exchange |  <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/spb_exchange.html" target="_blank">Ru</a> |
-|<img src="./Media/logos/Transaq_logo.png" height="30" /> |Transaq |  <a href="https://doc.stocksharp.ru/topics/api/connectors/russia/transaq.html" target="_blank">
-  [
-  [
-  
-  [7]: 
-  
-  [
-  
-  [
-  
-
+|<img src="./Media/logos/quik_logo.svg" height="30" /> |Quik FIX |  <a href="https://doc.stocksharp." target="_blank">Ru</a> |
+|<img src="./Media/logos/itinvest_logo.svg" height="30" /> |SmartCOM |  <a href="https://doc.stocksharp. target="_blank">Ru</a> |
+|<img src="./Media/logos/spbex_logo.svg" height="30" /> |SPB Exchange |  <a href="https://doc.stocksharp.ru/" target="
+|<img src="./Media/logos/Transaq_logo.png" height="30" /> |Transaq |  <a href="https://doc.stocksharp.
